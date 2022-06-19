@@ -92,7 +92,7 @@ _G.packer_plugins = {
   ["cmp-path"] = {
     loaded = true,
     path = "/home/andre/.local/share/nvim/site/pack/packer/start/cmp-path",
-    url = "https://github.com//hrsh7th/cmp-path"
+    url = "https://github.com/hrsh7th/cmp-path"
   },
   ["cmp-tabnine"] = {
     loaded = true,
