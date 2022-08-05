@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 
 	-- null ls
-	use("jose-elias-alvarez/null-ls.nvim")
+--	use("jose-elias-alvarez/null-ls.nvim")
 
 	-- formatter
 	use("sbdchd/neoformat")
@@ -36,6 +36,7 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", {
 		run = ":TSUpdate",
 	})
+    use 'p00f/nvim-ts-rainbow'
 
 	use("nvim-treesitter/playground")
 	use("romgrk/nvim-treesitter-context")
@@ -52,7 +53,20 @@ return require("packer").startup(function(use)
 	})
 
 	-- git stuff
-	use("TimUntersberger/neogit")
+    use {
+     'TimUntersberger/neogit',
+      requires = {
+         'nvim-lua/plenary.nvim',
+         'sindrets/diffview.nvim'
+       }
+     }
+
+     use {
+        'lewis6991/gitsigns.nvim',
+          config = function()
+            require('gitsigns').setup()
+  end
+  }
 
 	-- undoo tree
 	use("mbbill/undotree")

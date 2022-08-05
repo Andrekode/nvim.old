@@ -5,6 +5,8 @@ vim.o.completeopt = 'menuone,noselect'
 -- Ignore compiled files
 opt.wildignore = "__pycache__"
 opt.wildignore = opt.wildignore + { "*.o", "*~", "*.pyc", "*pycache*" }
+opt.wildignore = '/node_modules'
+opt.wildignore = opt.wildignore + {"*node_modules", "**/node_modules/*"}
 
 -- Cool floating window popup menu for completion on command line
 opt.pumblend = 17

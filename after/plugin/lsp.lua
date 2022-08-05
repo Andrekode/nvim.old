@@ -20,14 +20,8 @@ local lspkind = require("lspkind")
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			-- For `vsnip` user.
-			-- vim.fn["vsnip#anonymous"](args.body)
-
 			-- For `luasnip` user.
 			require("luasnip").lsp_expand(args.body)
-
-			-- For `ultisnips` user.
-			-- vim.fn["UltiSnips#Anon"](args.body)
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
@@ -54,20 +48,10 @@ cmp.setup({
 
 	sources = {
 		-- tabnine completion? yayaya
-
 		{ name = "cmp_tabnine" },
-
 		{ name = "nvim_lsp" },
-
-		-- For vsnip user.
-		-- { name = 'vsnip' },
-
 		-- For luasnip user.
 		{ name = "luasnip" },
-
-		-- For ultisnips user.
-		-- { name = 'ultisnips' },
-
         { name = "path" },
 		{ name = "buffer" },
 	},
@@ -90,8 +74,8 @@ local function config(_config)
 			nnoremap("K", function() vim.lsp.buf.hover() end)
 			nnoremap("<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
 			nnoremap("<leader>vd", function() vim.diagnostic.open_float() end)
-			nnoremap("[d", function() vim.lsp.diagnostic.goto_next() end)
-			nnoremap("]d", function() vim.lsp.diagnostic.goto_prev() end)
+			nnoremap("[d", function() vim.diagnostic.goto_next() end)
+			nnoremap("]d", function() vim.diagnostic.goto_prev() end)
 			nnoremap("<leader>vca", function() vim.lsp.buf.code_action() end)
 			nnoremap("<leader>vrr", function() vim.lsp.buf.references() end)
 			nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
@@ -100,17 +84,9 @@ local function config(_config)
 	}, _config or {})
 end
 
+-- Lsp Configs
 require("lspconfig").tsserver.setup(config())
 
---[[  I cannot seem to get this woring on new computer..
-require("lspconfig").clangd.setup(config({
-	cmd = { "clangd", "--background-index", "--log=verbose" },
-    root_dir = function()
-        print("clangd-Rootdir", vim.loop.cwd())
-		return vim.loop.cwd()
-	end,
-}))
---]]
 require("lspconfig").ccls.setup(config())
 
 require("lspconfig").jedi_language_server.setup(config())
@@ -120,6 +96,34 @@ require("lspconfig").svelte.setup(config())
 require("lspconfig").solang.setup(config())
 
 require("lspconfig").cssls.setup(config())
+
+require'lspconfig'.eslint.setup{config({
+  codeAction = {
+    disableRuleComment = {
+      enable = true,
+      location = "separateLine"
+    },
+    showDocumentation = {
+      enable = true
+    }
+  },
+  codeActionOnSave = {
+    enable = false,
+    mode = "all"
+  },
+  format = true,
+  nodePath = "",
+  onIgnoredFiles = "off",
+  packageManager = "npm",
+  quiet = false,
+  rulesCustomizations = {},
+  run = "onType",
+  useESLintClass = false,
+  validate = "on",
+  workingDirectory = {
+    mode = "location"
+  }
+})}
 
 require("lspconfig").gopls.setup(config({
 	cmd = { "gopls", "serve" },
@@ -160,7 +164,7 @@ require("lspconfig").sumneko_lua.setup(config({
 				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
 				-- Setup your lua path
-				path = runtime_path 
+				path = runtime_path
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global

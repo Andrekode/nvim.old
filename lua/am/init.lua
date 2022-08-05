@@ -1,6 +1,5 @@
 require('am.options')
 require('am.packer')
-require('am.neogit')
 
 
 
