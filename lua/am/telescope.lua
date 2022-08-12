@@ -22,24 +22,26 @@ require("telescope").setup({
 			},
 		},
 	},
-    --[[
 	extensions = {
-		fzy_native = {
-			override_generic_sorter = false,
-			override_file_sorter = true,
-		},
+        file_browser = {
+            hijack_netrw = false,
+
+            },
+  --       },
+		-- fzy_native = {
+		-- 	override_generic_sorter = false,
+		-- 	override_file_sorter = true,
+		-- },
 	},
-    ]]
 })
 
 require("telescope").load_extension("git_worktree")
 -- require("telescope").load_extension("fzy_native")
+require("telescope").load_extension("file_browser")
 
 local M = {}
 
 function M.reload_modules()
-	-- Because TJ gave it to me.  Makes me happpy.  Put it next to his other
-	-- awesome things.
 	local lua_dirs = vim.fn.glob("./lua/*", 0, 1)
 	for _, dir in ipairs(lua_dirs) do
 		dir = string.gsub(dir, "./lua/", "")

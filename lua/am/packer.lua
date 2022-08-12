@@ -5,6 +5,7 @@ return require("packer").startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 	use("nvim-telescope/telescope.nvim")
+    use("nvim-telescope/telescope-file-browser.nvim")
 
 	-- lsp
 	use("neovim/nvim-lspconfig")
