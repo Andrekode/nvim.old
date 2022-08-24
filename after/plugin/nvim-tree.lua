@@ -1,4 +1,5 @@
 require("nvim-tree").setup({
+      hijack_netrw = false,
   sort_by = "case_sensitive",
   view = {
     adaptive_size = true,

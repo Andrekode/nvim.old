@@ -5,7 +5,7 @@ local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
 local nmap = Remap.nmap
 
-nnoremap("<leader>pv", ":NvimTreeToggle<CR>")
+nnoremap("<leader>pv", ":NvimTreeFindFileToggle<CR>")
 nnoremap("<leader>u", ":UndotreeShow<CR>")
 
 vnoremap("K", ":m '<-2<CR>gv=gv")
