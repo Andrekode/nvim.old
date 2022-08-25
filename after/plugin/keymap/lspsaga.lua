@@ -9,6 +9,7 @@ nnoremap('[e', '<Cmd>Lspsaga diagnostic_jump_next<CR>')
 nnoremap(']e', '<Cmd>Lspsaga diagnostic_jump_prev<CR>')
 nnoremap('K', '<Cmd>Lspsaga hover_doc<CR>')
 nnoremap('<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>')
+
 -- code action 
 nnoremap('<leader>ca', '<Cmd>Lspsaga code_action<CR>')
 vnoremap('<leader>ca', '<cmd>Lspsaga range_code_action<CR>')
@@ -20,12 +21,3 @@ inoremap('<C-k>', '<Cmd>Lspsaga signature_help<CR>')
 -- rename
 nnoremap('<leader>rn', '<Cmd>Lspsaga rename<CR>')
 
-local action = require("lspsaga.action")
--- scroll in hover doc or  definition preview window
-vim.keymap.set("n", "<C-f>", function()
-    action.smart_scroll_with_saga(1)
-end, { silent = true })
--- scroll in hover doc or  definition preview window
-vim.keymap.set("n", "<C-b>", function()
-    action.smart_scroll_with_saga(-1)
-end, { silent = true })

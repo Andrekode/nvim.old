@@ -87,13 +87,4 @@ show_outline = {
   -- auto refresh when change buffer
   auto_refresh = true,
 },
--- custom lsp kind
--- usage { Field = 'color code'} or {Field = {your icon, your color code}}
--- if you don't use nvim-lspconfig you must pass your server name and
--- the related filetypes into this table
--- like server_filetype_map = { metals = { "sbt", "scala" } }
-server_filetype_map = {
-
-    typescript = 'typescript'
-},
 }
