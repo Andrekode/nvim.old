@@ -5,8 +5,8 @@ return require("packer").startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 	use("nvim-telescope/telescope.nvim")
-    use("kyazdani42/nvim-tree.lua")
-    use('kyazdani42/nvim-web-devicons')
+	use("kyazdani42/nvim-tree.lua")
+	use("kyazdani42/nvim-web-devicons")
 
 	-- lsp
 	use("neovim/nvim-lspconfig")
@@ -23,7 +23,7 @@ return require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 
 	-- null ls
---	use("jose-elias-alvarez/null-ls.nvim")
+	--	use("jose-elias-alvarez/null-ls.nvim")
 
 	-- formatter
 	use("sbdchd/neoformat")
@@ -38,10 +38,10 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", {
 		run = ":TSUpdate",
 	})
-    use 'p00f/nvim-ts-rainbow'
+	use("p00f/nvim-ts-rainbow")
 
-	use("nvim-treesitter/playground")
 	use("romgrk/nvim-treesitter-context")
+    use("nvim-treesitter/playground")
 
 	-- commenter
 	use("numToStr/Comment.nvim")
@@ -53,22 +53,24 @@ return require("packer").startup(function(use)
 			require("nvim-autopairs").setup({})
 		end,
 	})
+	-- indent blankline
+	use("lukas-reineke/indent-blankline.nvim")
 
 	-- git stuff
-    use {
-     'TimUntersberger/neogit',
-      requires = {
-         'nvim-lua/plenary.nvim',
-         'sindrets/diffview.nvim'
-       }
-     }
+	use({
+		"TimUntersberger/neogit",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+		},
+	})
 
-     use {
-        'lewis6991/gitsigns.nvim',
-          config = function()
-            require('gitsigns').setup()
-  end
-  }
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
 
 	-- undoo tree
 	use("mbbill/undotree")

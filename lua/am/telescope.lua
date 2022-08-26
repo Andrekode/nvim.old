@@ -18,11 +18,10 @@ require("telescope").setup({
 		},
 	},
 	extensions = {
-        file_browser = {
-            hijack_netrw = false,
-
-            },
-  --       },
+		file_browser = {
+			hijack_netrw = false,
+		},
+		--       },
 		-- fzy_native = {
 		-- 	override_generic_sorter = false,
 		-- 	override_file_sorter = true,
@@ -32,4 +31,3 @@ require("telescope").setup({
 
 require("telescope").load_extension("git_worktree")
 -- require("telescope").load_extension("fzy_native")
-

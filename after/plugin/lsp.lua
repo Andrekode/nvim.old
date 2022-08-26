@@ -2,7 +2,6 @@ local Remap = require("am.keymap")
 local nnoremap = Remap.nnoremap
 local inoremap = Remap.inoremap
 
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -25,7 +24,7 @@ cmp.setup({
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+		["<C-y>"] = cmp.mapping.confirm({ select = true }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
@@ -52,7 +51,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		-- For luasnip user.
 		{ name = "luasnip" },
-        { name = "path" },
+		{ name = "path" },
 		{ name = "buffer" },
 	},
 })
@@ -79,7 +78,9 @@ local function config(_config)
 			-- nnoremap("<leader>vca", function() vim.lsp.buf.code_action() end)
 			-- nnoremap("<leader>vrr", function() vim.lsp.buf.references() end)
 			-- nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
-			inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
+			inoremap("<C-h>", function()
+				vim.lsp.buf.signature_help()
+			end)
 		end,
 	}, _config or {})
 end
@@ -97,33 +98,35 @@ require("lspconfig").solang.setup(config())
 
 require("lspconfig").cssls.setup(config())
 
-require'lspconfig'.eslint.setup{config({
-  codeAction = {
-    disableRuleComment = {
-      enable = true,
-      location = "separateLine"
-    },
-    showDocumentation = {
-      enable = true
-    }
-  },
-  codeActionOnSave = {
-    enable = false,
-    mode = "all"
-  },
-  format = true,
-  nodePath = "",
-  onIgnoredFiles = "off",
-  packageManager = "npm",
-  quiet = false,
-  rulesCustomizations = {},
-  run = "onType",
-  useESLintClass = false,
-  validate = "on",
-  workingDirectory = {
-    mode = "location"
-  }
-})}
+require("lspconfig").eslint.setup({
+	config({
+		codeAction = {
+			disableRuleComment = {
+				enable = true,
+				location = "separateLine",
+			},
+			showDocumentation = {
+				enable = true,
+			},
+		},
+		codeActionOnSave = {
+			enable = false,
+			mode = "all",
+		},
+		format = true,
+		nodePath = "",
+		onIgnoredFiles = "off",
+		packageManager = "npm",
+		quiet = false,
+		rulesCustomizations = {},
+		run = "onType",
+		useESLintClass = false,
+		validate = "on",
+		workingDirectory = {
+			mode = "location",
+		},
+	}),
+})
 
 require("lspconfig").gopls.setup(config({
 	cmd = { "gopls", "serve" },
@@ -151,11 +154,9 @@ require("lspconfig").rust_analyzer.setup(config({
     --]]
 }))
 
-
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, 'lua/?.lua')
-table.insert(runtime_path, 'lua/?/init.lua')
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
 
 require("lspconfig").sumneko_lua.setup(config({
 	settings = {
@@ -164,7 +165,7 @@ require("lspconfig").sumneko_lua.setup(config({
 				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
 				-- Setup your lua path
-				path = runtime_path
+				path = runtime_path,
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
@@ -194,6 +195,5 @@ local opts = {
 }
 
 require("symbols-outline").setup(opts)
-
 
 require("luasnip.loaders.from_vscode").lazy_load()

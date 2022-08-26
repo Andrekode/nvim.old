@@ -7,7 +7,7 @@ local nmap = Remap.nmap
 
 nnoremap("<leader>pv", ":NvimTreeFindFileToggle<CR>")
 nnoremap("<leader>u", ":UndotreeShow<CR>")
-nnoremap("<leader>fo", ':Neoformat prettier<CR>')
+nnoremap("<leader>fo", ":Neoformat prettier<CR>")
 
 vnoremap("K", ":m '<-2<CR>gv=gv")
 vnoremap("J", ":m '>+1<CR>gv=gv")
@@ -18,20 +18,18 @@ nnoremap("N", "Nzzzv")
 nnoremap("J", "mzJ`z")
 
 -- greatest remap ever
-xnoremap("<leader>p", "\"_dP")
+xnoremap("<leader>p", '"_dP')
 
-nnoremap("<leader>y", "\"+y")
-vnoremap("<leader>y", "\"+y")
-nmap("<leader>Y", "\"+Y")
+nnoremap("<leader>y", '"+y')
+vnoremap("<leader>y", '"+y')
+nmap("<leader>Y", '"+Y')
 
-nnoremap("<leader>d", "\"_d")
-vnoremap("<leader>d", "\"_d")
-
+nnoremap("<leader>d", '"_d')
+vnoremap("<leader>d", '"_d')
 
 inoremap("<C-c>", "<Esc>")
 
 nnoremap("Q", "<nop>")
-
 
 nnoremap("<C-k>", "<cmd>cnext<CR>zz")
 nnoremap("<C-j>", "<cmd>cprev<CR>zz")
