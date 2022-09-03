@@ -141,18 +141,18 @@ require("lspconfig").gopls.setup(config({
 }))
 
 -- who even uses this?
-require("lspconfig").rust_analyzer.setup(config({
-	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-	--[[
-    settings = {
-        rust = {
-            unstable_features = true,
-            build_on_save = false,
-            all_features = true,
-        },
-    }
-    --]]
-}))
+-- require("lspconfig").rust_analyzer.setup(config({
+-- 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+-- 	--[[
+--     settings = {
+--         rust = {
+--             unstable_features = true,
+--             build_on_save = false,
+--             all_features = true,
+--         },
+--     }
+--     --]]
+-- }))
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
