@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
 	use("simrat39/symbols-outline.nvim")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
-
+	use("simrat39/rust-tools.nvim")
 	-- null ls
 	--	use("jose-elias-alvarez/null-ls.nvim")
 

@@ -44,3 +44,41 @@
 -- 		"IndentBlanklineIndent6",
 -- 	},
 -- })
+-- vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("eol:↴")
+
+require("indent_blankline").setup({
+	show_first_indent_level = true,
+	show_current_context = true,
+	context_patterns = {
+		"class",
+		"return",
+		"function",
+		"method",
+		"^if",
+		"^while",
+		"jsx_element",
+		"^for",
+		"^object",
+		"^table",
+		"block",
+		"arguments",
+		"if_statement",
+		"else_clause",
+		"jsx_element",
+		"try_statement",
+		"catch_clause",
+		"import_statement",
+		"operation_type",
+		"statement_block",
+	},
+	space_char_blankline = " ",
+	char_highlight_list = {
+		"IndentBlanklineIndent1",
+		"IndentBlanklineIndent2",
+		"IndentBlanklineIndent3",
+		"IndentBlanklineIndent4",
+		"IndentBlanklineIndent5",
+		"IndentBlanklineIndent6",
+	},
+})
