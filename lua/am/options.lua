@@ -1,5 +1,6 @@
 vim.g.loaded_matchparen = 1
 vim.opt.termguicolors = true
+vim.opt.winbar = '%=%m %f'
 local opt = vim.opt
 vim.o.completeopt = "menuone,noselect"
 -- Ignore compiled files

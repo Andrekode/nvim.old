@@ -41,7 +41,7 @@ return require("packer").startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 
 	use("romgrk/nvim-treesitter-context")
-    use("nvim-treesitter/playground")
+	use("nvim-treesitter/playground")
 
 	-- commenter
 	use("numToStr/Comment.nvim")
@@ -54,17 +54,11 @@ return require("packer").startup(function(use)
 		end,
 	})
 	-- indent blankline
-	use("lukas-reineke/indent-blankline.nvim")
+	-- use("lukas-reineke/indent-blankline.nvim")
 
 	-- git stuff
-	use({
-		"TimUntersberger/neogit",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"sindrets/diffview.nvim",
-		},
-	})
-
+	use("TimUntersberger/neogit")
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()

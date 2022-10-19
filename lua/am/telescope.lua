@@ -18,9 +18,6 @@ require("telescope").setup({
 		},
 	},
 	extensions = {
-		file_browser = {
-			hijack_netrw = false,
-		},
 		--       },
 		-- fzy_native = {
 		-- 	override_generic_sorter = false,

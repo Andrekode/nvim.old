@@ -13,7 +13,7 @@ nnoremap("<leader>ca", "<Cmd>Lspsaga code_action<CR>")
 vnoremap("<leader>ca", "<cmd>Lspsaga range_code_action<CR>")
 
 nnoremap("gd", "<Cmd>Lspsaga lsp_finder<CR>")
-nnoremap("gp", "<Cmd>Lspsaga preview_definition<CR>")
+nnoremap("gp", "<Cmd>Lspsaga peek_definition<CR>")
 inoremap("<C-k>", "<Cmd>Lspsaga signature_help<CR>")
 
 -- rename
